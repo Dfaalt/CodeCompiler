@@ -122,19 +122,19 @@ const HtmlEditor = ({
         <TabsList className="bg-secondary border-b border-border rounded-none w-full justify-start px-4">
           <TabsTrigger
             value="html"
-            className="font-mono text-xs sm:text-sm text-orange-500 data-[state=active]:text-orange-500"
+            className="font-mono text-xs sm:text-sm text-orange-500 data-[state=active]:text-orange-500 dark:text-orange-500 dark:data-[state=active]:text-orange-500 dark:data-[state=active]:bg-background"
           >
             index.html
           </TabsTrigger>
           <TabsTrigger
             value="css"
-            className="font-mono text-xs sm:text-sm text-blue-500 data-[state=active]:text-blue-500"
+            className="font-mono text-xs sm:text-sm text-blue-500 data-[state=active]:text-blue-500 dark:text-blue-500 dark:data-[state=active]:text-blue-500 dark:data-[state=active]:bg-background"
           >
             styles.css
           </TabsTrigger>
           <TabsTrigger
             value="js"
-            className="font-mono text-xs sm:text-sm text-yellow-500 data-[state=active]:text-yellow-500"
+            className="font-mono text-xs sm:text-sm text-yellow-500 data-[state=active]:text-yellow-500 dark:text-yellow-500 dark:data-[state=active]:text-yellow-500 dark:data-[state=active]:bg-background"
           >
             script.js
           </TabsTrigger>
@@ -164,9 +164,9 @@ const HtmlEditor = ({
         </div>
 
         {/* Dummy TabsContent agar shadcn Tabs tetap senang, tapi editor dipakai shared */}
-        <TabsContent value="html" />
+        {/* <TabsContent value="html" />
         <TabsContent value="css" />
-        <TabsContent value="js" />
+        <TabsContent value="js" /> */}
       </Tabs>
     </div>
   );
