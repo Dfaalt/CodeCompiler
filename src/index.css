@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Aktifkan dark mode berbasis class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* === LIGHT MODE (default) === */
+@theme {
+  --color-background: hsl(210 40% 98%);
+  --color-foreground: hsl(220 13% 13%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(220 13% 13%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(220 13% 13%);
+
+  --color-primary: hsl(142 76% 36%);
+  --color-primary-foreground: hsl(210 40% 98%);
+
+  --color-secondary: hsl(210 40% 96%);
+  --color-secondary-foreground: hsl(220 13% 13%);
+
+  --color-muted: hsl(210 40% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+
+  --color-accent: hsl(142 76% 36%);
+  --color-accent-foreground: hsl(210 40% 98%);
+
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+
+  --color-border: hsl(214 32% 91%);
+  --color-input: hsl(214 32% 91%);
+  --color-ring: hsl(142 76% 36%);
+
+  /* custom tambahan editor */
+  --color-editor-bg: hsl(210 40% 98%);
+  --color-editor-line: hsl(210 40% 96%);
+  --color-output-bg: hsl(210 40% 99%);
+  --color-success: hsl(142 76% 36%);
+  --color-code-text: hsl(220 13% 13%);
+}
+
+/* === DARK MODE Override === */
+.dark {
+  --color-background: hsl(220 13% 13%);
+  --color-foreground: hsl(210 40% 98%);
+
+  --color-card: hsl(220 13% 15%);
+  --color-card-foreground: hsl(210 40% 98%);
+
+  --color-popover: hsl(220 13% 15%);
+  --color-popover-foreground: hsl(210 40% 98%);
+
+  --color-primary: hsl(142 76% 36%);
+  --color-primary-foreground: hsl(210 40% 98%);
+
+  --color-secondary: hsl(220 13% 18%);
+  --color-secondary-foreground: hsl(210 40% 98%);
+
+  --color-muted: hsl(220 13% 18%);
+  --color-muted-foreground: hsl(215 20.2% 65.1%);
+
+  --color-accent: hsl(142 76% 36%);
+  --color-accent-foreground: hsl(210 40% 98%);
+
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+
+  --color-border: hsl(220 13% 20%);
+  --color-input: hsl(220 13% 18%);
+  --color-ring: hsl(142 76% 36%);
+
+  /* custom tambahan editor */
+  --color-editor-bg: hsl(220 13% 11%);
+  --color-editor-line: hsl(220 13% 15%);
+  --color-output-bg: hsl(220 13% 9%);
+  --color-code-text: hsl(210 40% 98%);
+}
+
+/* base */
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
