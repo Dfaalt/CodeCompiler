@@ -3,7 +3,7 @@ import Editor from "@monaco-editor/react";
 import type { OnMount } from "@monaco-editor/react";
 import { Button } from "@/components/ui/button";
 import { Play, RotateCcw, Download } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMonacoFeatures } from "@/hooks/useMonacoFeatures";
 
 interface HtmlEditorProps {
@@ -162,11 +162,6 @@ const HtmlEditor = ({
             }}
           />
         </div>
-
-        {/* Dummy TabsContent agar shadcn Tabs tetap senang, tapi editor dipakai shared */}
-        {/* <TabsContent value="html" />
-        <TabsContent value="css" />
-        <TabsContent value="js" /> */}
       </Tabs>
     </div>
   );
