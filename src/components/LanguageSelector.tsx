@@ -18,7 +18,7 @@ const languages = [
   { value: "python", label: "Python", icon: "PY" },
   { value: "cpp", label: "C++", icon: "C++" },
   { value: "java", label: "Java", icon: "JAVA" },
-  { value: "html", label: "HTML/CSS", icon: "HTML" },
+  { value: "html", label: "HTML/CSS/JS", icon: "HTML" },
 ];
 
 const LanguageSelector = ({ value, onChange }: LanguageSelectorProps) => {
@@ -34,7 +34,9 @@ const LanguageSelector = ({ value, onChange }: LanguageSelectorProps) => {
         {languages.map((lang) => (
           <SelectItem key={lang.value} value={lang.value}>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs text-success">{lang.icon}</span>
+              <span className="font-mono text-xs text-success">
+                {lang.icon}
+              </span>
               <span>{lang.label}</span>
             </div>
           </SelectItem>

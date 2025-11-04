@@ -11,62 +11,25 @@ import { toast } from "sonner";
 
 const sampleCode = {
   javascript: `// JavaScript Example
-function factorial(n) {
-  if (n <= 1) return 1;
-  return n * factorial(n - 1);
-}
-
-console.log("Factorial of 5:", factorial(5));
-console.log("Hello from JavaScript!");`,
+console.log("Hello, World!");`,
   typescript: `// TypeScript Example
-interface User {
-  name: string;
-  age: number;
-}
-
-function greetUser(user: User): string {
-  return \`Hello, \${user.name}! You are \${user.age} years old.\`;
-}
-
-const user: User = { name: "John", age: 30 };
-console.log(greetUser(user));`,
+console.log("Hello, World!");`,
   python: `# Python Example
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-
-print("Fibonacci of 7:", fibonacci(7))
-print("Hello from Python!")`,
+print("Hello, World!")`,
   cpp: `// C++ Example
 #include <iostream>
 using namespace std;
 
 int main() {
-    cout << "Hello from C++!" << endl;
+    cout << "Hello, World!" << endl;
     return 0;
 }`,
   java: `// Java Example
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello from Java!");
+        System.out.println("Hello, World!");
     }
 }`,
-  html: `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML/CSS/JS Example</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Hello from HTML/CSS/JS!</h1>
-        <button class="button" onclick="handleClick()">Click Me</button>
-        <p id="message"></p>
-    </div>
-</body>
-</html>`,
 };
 
 const sampleHtmlFiles = {
@@ -80,7 +43,7 @@ const sampleHtmlFiles = {
 </head>
 <body>
     <div class="container">
-        <h1>Hello from HTML/CSS/JS!</h1>
+        <h1>Hello, World!</h1>
         <button class="button" onclick="handleClick()">Click Me</button>
         <p id="message"></p>
     </div>
@@ -270,7 +233,7 @@ const Index = () => {
 
         try {
           // Simple type stripping (works for basic TypeScript)
-          let jsCode = code
+          const jsCode = code
             // Remove interface declarations
             .replace(/interface\s+\w+\s*\{[^}]*\}/g, "")
             // Remove type annotations from variables
@@ -374,7 +337,7 @@ const Index = () => {
             <div className="w-7 h-7 bg-success rounded-lg flex items-center justify-center">
               <Play className="w-4 h-4 text-background" />
             </div>
-            <h1 className="font-bold text-foreground ">CodeCompiler</h1>
+            <h1 className="font-bold text-foreground ">Dfaalt Code Compiler</h1>
           </div>
           <div className="flex items-center gap-2">
             <ThemeToggle />

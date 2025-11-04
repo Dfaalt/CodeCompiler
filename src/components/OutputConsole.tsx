@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Terminal, Monitor, Smartphone, Tablet } from "lucide-react";
+import {
+  Terminal,
+  Monitor,
+  Smartphone,
+  Tablet,
+  ExternalLink,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +33,14 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
     }
   };
 
+  const openPreviewInNewTab = () => {
+    if (!isHtmlPreview) return;
+    const blob = new Blob([htmlContent], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    window.open(url, "_blank", "noopener,noreferrer");
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+  };
+
   return (
     <div className="h-full flex flex-col bg-output-bg">
       <div className="bg-secondary px-4 py-2 border-b border-border flex items-center justify-between gap-2">
@@ -37,7 +51,7 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
           </span>
         </div>
 
-        {isHtmlPreview && (
+        {isHtmlPreview ? (
           <div className="flex items-center gap-1">
             <Button
               variant="ghost"
@@ -47,6 +61,7 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
                 "h-8 w-8 p-0",
                 previewMode === "desktop" && "bg-accent"
               )}
+              title="Desktop Preview"
             >
               <Monitor className="w-4 h-4" />
             </Button>
@@ -58,6 +73,7 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
                 "h-8 w-8 p-0",
                 previewMode === "tablet" && "bg-accent"
               )}
+              title="Tablet Preview"
             >
               <Tablet className="w-4 h-4" />
             </Button>
@@ -69,18 +85,32 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
                 "h-8 w-8 p-0",
                 previewMode === "mobile" && "bg-accent"
               )}
+              title="Mobile Preview"
             >
               <Smartphone className="w-4 h-4" />
             </Button>
+
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={openPreviewInNewTab}
+              className="ml-1 gap-1 sm:gap-2"
+              title="Open Preview in New Tab"
+            >
+              <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline cursor-pointer hover:text-accent">
+                Preview
+              </span>
+            </Button>
           </div>
-        )}
+        ) : null}
       </div>
       {isHtmlPreview ? (
-        <div className="flex-1 w-full overflow-auto bg-muted/20 flex justify-center p-4">
+        <div className="flex-1 w-full overflow-auto flex justify-center">
           <iframe
             srcDoc={htmlContent}
             className={cn(
-              "h-full border border-border bg-white rounded-lg shadow-lg transition-all duration-300",
+              "h-full bg-white rounded-md shadow-md border-none",
               getPreviewWidth()
             )}
             title="HTML Preview"
