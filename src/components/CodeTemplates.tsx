@@ -30,7 +30,7 @@ console.log("Factorial of 5:", factorial(5));`,
 
 console.log("Fibonacci of 7:", fibonacci(7));`,
 
-    "Array Functions": `const cekSpekLaptop = (ram) => {
+    "Arrow Functions": `const cekSpekLaptop = (ram) => {
   if (ram >= 8) {
     return "Spek sudah cukup untuk coding.";
   } else {
