@@ -15,18 +15,31 @@ interface CodeTemplatesProps {
 const templates = {
   javascript: {
     "Hello World": `console.log("Hello, World!");`,
+
     Factorial: `function factorial(n) {
   if (n <= 1) return 1;
   return n * factorial(n - 1);
 }
 
 console.log("Factorial of 5:", factorial(5));`,
+
     Fibonacci: `function fibonacci(n) {
   if (n <= 1) return n;
   return fibonacci(n-1) + fibonacci(n-2);
 }
 
 console.log("Fibonacci of 7:", fibonacci(7));`,
+
+    "Array Functions": `const cekSpekLaptop = (ram) => {
+  if (ram >= 8) {
+    return "Spek sudah cukup untuk coding.";
+  } else {
+    return "Minimal punya RTX!";
+  }
+};
+
+console.log(cekSpekLaptop(4));`,
+
     "Array Operations": `const numbers = [1, 2, 3, 4, 5];
 
 // Map
@@ -40,30 +53,49 @@ console.log("Evens:", evens);
 // Reduce
 const sum = numbers.reduce((acc, n) => acc + n, 0);
 console.log("Sum:", sum);`,
+
     "Promise Example": `const fetchData = () => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve("Data fetched!");
+      const success = false;
+      
+      if (success) {
+        resolve("Data Fetched!");
+      } else {
+        reject("Error Fetching Data!");
+      }
     }, 1000);
   });
 };
 
-fetchData().then(data => console.log(data));`,
+const run = async () => {
+  try {
+    const data = await fetchData();
+    console.log(data);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+run();`,
   },
   typescript: {
     "Hello World": `console.log("Hello, World!");`,
+
     Factorial: `function factorial(n: number): number {
   if (n <= 1) return 1;
   return n * factorial(n - 1);
 }
 
 console.log("Factorial of 5:", factorial(5));`,
+
     Fibonacci: `function fibonacci(n: number): number {
   if (n <= 1) return n;
   return fibonacci(n-1) + fibonacci(n-2);
 }
 
 console.log("Fibonacci of 7:", fibonacci(7));`,
+
     "Array Operations": `const numbers: number[] = [1, 2, 3, 4, 5];
 
 // Map
@@ -77,6 +109,7 @@ console.log("Evens:", evens);
 // Reduce
 const sum: number = numbers.reduce((acc, n) => acc + n, 0);
 console.log("Sum:", sum);`,
+
     "Interface Example": `interface User {
   name: string;
   age: number;
@@ -90,6 +123,7 @@ const user: User = {
 };
 
 console.log(\`User: \${user.name}, Age: \${user.age}\`);`,
+
     "Generic Function": `function identity<T>(arg: T): T {
   return arg;
 }

@@ -37,9 +37,9 @@ const CodeEditor = ({
     <div className="h-full flex flex-col">
       <div className="bg-secondary px-3 sm:px-4 py-2 border-b border-border flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-destructive"></div>
-          <div className="w-3 h-3 rounded-full bg-accent"></div>
-          <div className="w-3 h-3 rounded-full bg-success"></div>
+          <div className="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-400 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
           <span className="ml-2 sm:ml-4 text-sm text-muted-foreground font-mono">
             main.{languageMap[language] || "js"}
           </span>

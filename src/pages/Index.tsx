@@ -8,6 +8,7 @@ import CodeTemplates from "@/components/CodeTemplates";
 import ThemeToggle from "@/components/ThemeToggle";
 import KeyboardShortcuts from "@/components/KeyboardShortcuts";
 import { toast } from "sonner";
+import * as ts from "typescript";
 
 const sampleCode = {
   javascript: `// JavaScript Example
@@ -52,7 +53,7 @@ const sampleHtmlFiles = {
 </html>`,
   css: `body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0284c7 60%, #0369a1 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,12 +70,12 @@ const sampleHtmlFiles = {
 }
 
 h1 {
-    color: #333;
+    color: #0c4a6e;
     margin-bottom: 20px;
 }
 
 .button {
-    background: #667eea;
+    background: #0284c7;
     color: white;
     padding: 12px 30px;
     border: none;
@@ -85,13 +86,13 @@ h1 {
 }
 
 .button:hover {
-    background: #764ba2;
+    background: #0369a1;
 }
 
 #message {
     margin-top: 20px;
     font-size: 18px;
-    color: #667eea;
+    color:  #0369a1;
     font-weight: bold;
 }`,
   js: `function handleClick() {
@@ -232,21 +233,19 @@ const Index = () => {
         };
 
         try {
-          // Simple type stripping (works for basic TypeScript)
-          const jsCode = code
-            // Remove interface declarations
-            .replace(/interface\s+\w+\s*\{[^}]*\}/g, "")
-            // Remove type annotations from variables
-            .replace(/:\s*\w+(\[\])?(\s*=|\s*;|\s*\)|\s*,)/g, "$1$2")
-            // Remove type parameters
-            .replace(/<\w+>/g, "")
-            // Remove 'as' type assertions
-            .replace(/\s+as\s+\w+/g, "")
-            // Remove return type annotations
-            .replace(/\):\s*\w+\s*\{/g, ") {");
+          const transpiled = ts.transpileModule(code, {
+            compilerOptions: {
+              target: ts.ScriptTarget.ES2020,
+              module: ts.ModuleKind.ESNext, // atau ts.ModuleKind.CommonJS
+              jsx: ts.JsxEmit.ReactJSX, // kalau nanti dukung TSX
+              isolatedModules: true,
+              esModuleInterop: true,
+              removeComments: false,
+            },
+          }).outputText;
 
           // eslint-disable-next-line no-eval
-          eval(jsCode);
+          eval(transpiled);
           setOutput(
             logs.join("\n") || "Code executed successfully (no output)"
           );
