@@ -270,7 +270,7 @@ const Index = () => {
         setOutput(`HTML_PREVIEW:${combinedHtml}`);
       } else {
         setOutput(
-          `Note: ${language.toUpperCase()} execution requires a backend service.\nThis demo currently only supports JavaScript, TypeScript, and HTML/CSS execution in the browser.\n\nTo enable ${language.toUpperCase()}, we would need to integrate with a code execution API.`
+          `Note: ${language.toUpperCase()} execution requires a backend service.\nThis demo currently only supports JavaScript, TypeScript, and HTML/CSS execution in the browser.\n\nTo enable ${language.toUpperCase()}, we would need to integrate with a code execution API (Coming Soon!).`
         );
       }
     } catch (error) {
