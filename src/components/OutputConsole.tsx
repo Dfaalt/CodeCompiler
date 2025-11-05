@@ -42,11 +42,11 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
   };
 
   return (
-    <div className="h-full flex flex-col bg-output-bg">
-      <div className="bg-secondary px-4 py-2 border-b border-border flex items-center justify-between gap-2">
+    <div className="bg-output-bg flex h-full flex-col">
+      <div className="bg-secondary border-border flex items-center justify-between gap-2 border-b px-4 py-2">
         <div className="flex items-center gap-2">
-          <Terminal className="w-4 h-4 text-success" />
-          <span className="text-sm text-muted-foreground font-mono">
+          <Terminal className="text-success h-4 w-4" />
+          <span className="text-muted-foreground font-mono text-sm">
             {isHtmlPreview ? "Preview" : "Output"}
           </span>
         </div>
@@ -59,11 +59,11 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               onClick={() => setPreviewMode("desktop")}
               className={cn(
                 "h-8 w-8 p-0",
-                previewMode === "desktop" && "bg-accent"
+                previewMode === "desktop" && "bg-accent",
               )}
               title="Desktop Preview"
             >
-              <Monitor className="w-4 h-4" />
+              <Monitor className="h-4 w-4" />
             </Button>
             <Button
               variant="ghost"
@@ -71,11 +71,11 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               onClick={() => setPreviewMode("tablet")}
               className={cn(
                 "h-8 w-8 p-0",
-                previewMode === "tablet" && "bg-accent"
+                previewMode === "tablet" && "bg-accent",
               )}
               title="Tablet Preview"
             >
-              <Tablet className="w-4 h-4" />
+              <Tablet className="h-4 w-4" />
             </Button>
             <Button
               variant="ghost"
@@ -83,11 +83,11 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               onClick={() => setPreviewMode("mobile")}
               className={cn(
                 "h-8 w-8 p-0",
-                previewMode === "mobile" && "bg-accent"
+                previewMode === "mobile" && "bg-accent",
               )}
               title="Mobile Preview"
             >
-              <Smartphone className="w-4 h-4" />
+              <Smartphone className="h-4 w-4" />
             </Button>
 
             <Button
@@ -97,8 +97,8 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               className="ml-1 gap-1 sm:gap-2"
               title="Open Preview in New Tab"
             >
-              <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline cursor-pointer hover:text-accent">
+              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hover:text-accent hidden cursor-pointer sm:inline">
                 Preview
               </span>
             </Button>
@@ -106,12 +106,12 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
         ) : null}
       </div>
       {isHtmlPreview ? (
-        <div className="flex-1 w-full overflow-auto flex justify-center">
+        <div className="flex w-full flex-1 justify-center overflow-auto">
           <iframe
             srcDoc={htmlContent}
             className={cn(
-              "h-full bg-white rounded-md shadow-md border-none",
-              getPreviewWidth()
+              "h-full rounded-md border-none bg-white shadow-md",
+              getPreviewWidth(),
             )}
             title="HTML Preview"
             sandbox="allow-scripts"
@@ -119,7 +119,7 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
         </div>
       ) : (
         <ScrollArea className="flex-1 p-4">
-          <pre className="font-mono text-sm text-foreground whitespace-pre-wrap">
+          <pre className="text-foreground font-mono text-sm whitespace-pre-wrap">
             {isRunning ? (
               <span className="text-muted-foreground">Running code...</span>
             ) : (

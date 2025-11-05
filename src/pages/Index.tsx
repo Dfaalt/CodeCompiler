@@ -121,11 +121,11 @@ const Index = () => {
       const combinedHtml = sampleHtmlFiles.html
         .replace(
           '<link rel="stylesheet" href="styles.css">',
-          `<style>${sampleHtmlFiles.css}</style>`
+          `<style>${sampleHtmlFiles.css}</style>`,
         )
         .replace(
           '<script src="script.js"></script>',
-          `<script>${sampleHtmlFiles.js}</script>`
+          `<script>${sampleHtmlFiles.js}</script>`,
         );
       setOutput(`HTML_PREVIEW:${combinedHtml}`);
     } else {
@@ -143,11 +143,11 @@ const Index = () => {
       const combinedHtml = sampleHtmlFiles.html
         .replace(
           '<link rel="stylesheet" href="styles.css">',
-          `<style>${sampleHtmlFiles.css}</style>`
+          `<style>${sampleHtmlFiles.css}</style>`,
         )
         .replace(
           '<script src="script.js"></script>',
-          `<script>${sampleHtmlFiles.js}</script>`
+          `<script>${sampleHtmlFiles.js}</script>`,
         );
       setOutput(`HTML_PREVIEW:${combinedHtml}`);
     } else {
@@ -214,11 +214,11 @@ const Index = () => {
           // eslint-disable-next-line no-eval
           eval(code);
           setOutput(
-            logs.join("\n") || "Code executed successfully (no output)"
+            logs.join("\n") || "Code executed successfully (no output)",
           );
         } catch (error) {
           setOutput(
-            `Error: ${error instanceof Error ? error.message : String(error)}`
+            `Error: ${error instanceof Error ? error.message : String(error)}`,
           );
         } finally {
           console.log = originalLog;
@@ -247,11 +247,11 @@ const Index = () => {
           // eslint-disable-next-line no-eval
           eval(transpiled);
           setOutput(
-            logs.join("\n") || "Code executed successfully (no output)"
+            logs.join("\n") || "Code executed successfully (no output)",
           );
         } catch (error) {
           setOutput(
-            `Error: ${error instanceof Error ? error.message : String(error)}`
+            `Error: ${error instanceof Error ? error.message : String(error)}`,
           );
         } finally {
           console.log = originalLog;
@@ -261,21 +261,21 @@ const Index = () => {
         const combinedHtml = htmlContent
           .replace(
             '<link rel="stylesheet" href="styles.css">',
-            `<style>${cssContent}</style>`
+            `<style>${cssContent}</style>`,
           )
           .replace(
             '<script src="script.js"></script>',
-            `<script>${jsContent}</script>`
+            `<script>${jsContent}</script>`,
           );
         setOutput(`HTML_PREVIEW:${combinedHtml}`);
       } else {
         setOutput(
-          `Note: ${language.toUpperCase()} execution requires a backend service.\nThis demo currently only supports JavaScript, TypeScript, and HTML/CSS execution in the browser.\n\nTo enable ${language.toUpperCase()}, we would need to integrate with a code execution API (Coming Soon!).`
+          `Note: ${language.toUpperCase()} execution requires a backend service.\nThis demo currently only supports JavaScript, TypeScript, and HTML/CSS execution in the browser.\n\nTo enable ${language.toUpperCase()}, we would need to integrate with a code execution API (Coming Soon!).`,
         );
       }
     } catch (error) {
       setOutput(
-        `Error: ${error instanceof Error ? error.message : String(error)}`
+        `Error: ${error instanceof Error ? error.message : String(error)}`,
       );
     } finally {
       setIsRunning(false);
@@ -289,11 +289,11 @@ const Index = () => {
         const combinedHtml = htmlContent
           .replace(
             '<link rel="stylesheet" href="styles.css">',
-            `<style>${cssContent}</style>`
+            `<style>${cssContent}</style>`,
           )
           .replace(
             '<script src="script.js"></script>',
-            `<script>${jsContent}</script>`
+            `<script>${jsContent}</script>`,
           );
         setOutput(`HTML_PREVIEW:${combinedHtml}`);
       }, 500); // Debounce 500ms to avoid too many updates
@@ -327,16 +327,16 @@ const Index = () => {
   }, [code, language]);
 
   return (
-    <div className="h-screen bg-background flex flex-col overflow-hidden">
+    <div className="bg-background flex h-screen flex-col overflow-hidden">
       {/* Compact Header */}
-      <header className="border-b border-border bg-card shrink-0">
-        <div className="px-4 py-2 flex items-center justify-between">
+      <header className="border-border bg-card shrink-0 border-b">
+        <div className="flex items-center justify-between px-4 py-2">
           {/* Header atas */}
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 bg-success rounded-lg flex items-center justify-center">
-              <Play className="w-4 h-4 text-background" />
+            <div className="bg-success flex h-7 w-7 items-center justify-center rounded-lg">
+              <Play className="text-background h-4 w-4" />
             </div>
-            <h1 className="font-bold text-foreground ">Dfaalt Code Compiler</h1>
+            <h1 className="text-foreground font-bold">Dfaalt Code Compiler</h1>
           </div>
           <div className="flex items-center gap-2">
             <ThemeToggle />
@@ -344,8 +344,8 @@ const Index = () => {
         </div>
 
         {/* Header bawah */}
-        <div className="border-t border-border px-4 py-2 overflow-x-auto snap-x">
-          <div className="flex gap-3 whitespace-nowrap min-w-max snap-start">
+        <div className="border-border snap-x overflow-x-auto border-t px-4 py-2">
+          <div className="flex min-w-max snap-start gap-3 whitespace-nowrap">
             <LanguageSelector
               value={language}
               onChange={handleLanguageChange}
@@ -357,8 +357,8 @@ const Index = () => {
       </header>
 
       {/* Main Content - Full height split */}
-      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
-        <div className="w-full lg:w-1/2 h-1/2 lg:h-full border-b lg:border-b-0 lg:border-r border-border overflow-hidden">
+      <div className="flex flex-1 flex-col overflow-hidden lg:flex-row">
+        <div className="border-border h-1/2 w-full overflow-hidden border-b lg:h-full lg:w-1/2 lg:border-r lg:border-b-0">
           {language === "html" ? (
             <HtmlEditor
               htmlContent={htmlContent}
@@ -384,12 +384,12 @@ const Index = () => {
             />
           )}
         </div>
-        <div className="w-full lg:w-1/2 h-1/2 lg:h-full overflow-hidden">
+        <div className="h-1/2 w-full overflow-hidden lg:h-full lg:w-1/2">
           <OutputConsole output={output} isRunning={isRunning} />
         </div>
       </div>
-      <footer className="border-t border-border bg-card py-3 sm:py-4 shrink-0">
-        <div className="container mx-auto px-3 sm:px-4 text-center text-xs sm:text-sm text-muted-foreground">
+      <footer className="border-border bg-card shrink-0 border-t py-3 sm:py-4">
+        <div className="text-muted-foreground container mx-auto px-3 text-center text-xs sm:px-4 sm:text-sm">
           Online Code Compiler - Support for JavaScript, TypeScript, Python,
           C++, Java, and HTML/CSS
         </div>

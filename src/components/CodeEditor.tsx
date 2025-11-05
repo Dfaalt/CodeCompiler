@@ -34,13 +34,13 @@ const CodeEditor = ({
 }: CodeEditorProps) => {
   const monacoConfig = useMonacoFeatures();
   return (
-    <div className="h-full flex flex-col">
-      <div className="bg-secondary px-3 sm:px-4 py-2 border-b border-border flex items-center justify-between gap-2">
+    <div className="flex h-full flex-col">
+      <div className="bg-secondary border-border flex items-center justify-between gap-2 border-b px-3 py-2 sm:px-4">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-400 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
-          <span className="ml-2 sm:ml-4 text-sm text-muted-foreground font-mono">
+          <div className="h-3 w-3 rounded-full bg-red-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
+          <div className="h-3 w-3 rounded-full bg-yellow-400 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
+          <div className="h-3 w-3 rounded-full bg-green-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
+          <span className="text-muted-foreground ml-2 font-mono text-sm sm:ml-4">
             main.{languageMap[language] || "js"}
           </span>
         </div>
@@ -52,7 +52,7 @@ const CodeEditor = ({
               size="sm"
               className="gap-1 sm:gap-2"
             >
-              <Download className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Download className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Save</span>
             </Button>
           )}
@@ -63,7 +63,7 @@ const CodeEditor = ({
               size="sm"
               className="gap-1 sm:gap-2"
             >
-              <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
+              <RotateCcw className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Reset</span>
             </Button>
           )}
@@ -72,9 +72,9 @@ const CodeEditor = ({
               onClick={onRun}
               disabled={isRunning}
               size="sm"
-              className="gap-1 sm:gap-2 bg-success hover:bg-success/90 text-background"
+              className="bg-success hover:bg-success/90 text-background gap-1 sm:gap-2"
             >
-              <Play className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Play className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Run</span>
             </Button>
           )}

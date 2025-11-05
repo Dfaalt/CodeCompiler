@@ -28,12 +28,12 @@ const ThemeToggle = () => {
     >
       {theme === "dark" ? (
         <>
-          <Sun className="w-4 h-4" />
+          <Sun className="h-4 w-4" />
           Light
         </>
       ) : (
         <>
-          <Moon className="w-4 h-4" />
+          <Moon className="h-4 w-4" />
           Dark
         </>
       )}

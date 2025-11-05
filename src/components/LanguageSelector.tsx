@@ -24,9 +24,9 @@ const languages = [
 const LanguageSelector = ({ value, onChange }: LanguageSelectorProps) => {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-[180px] bg-secondary border-border">
+      <SelectTrigger className="bg-secondary border-border w-[180px]">
         <div className="flex items-center gap-2">
-          <Code2 className="w-4 h-4" />
+          <Code2 className="h-4 w-4" />
           <SelectValue placeholder="Select language" />
         </div>
       </SelectTrigger>
@@ -34,7 +34,7 @@ const LanguageSelector = ({ value, onChange }: LanguageSelectorProps) => {
         {languages.map((lang) => (
           <SelectItem key={lang.value} value={lang.value}>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs text-success">
+              <span className="text-success font-mono text-xs">
                 {lang.icon}
               </span>
               <span>{lang.label}</span>

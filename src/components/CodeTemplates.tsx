@@ -282,12 +282,12 @@ const CodeTemplates = ({ language, onSelectTemplate }: CodeTemplatesProps) => {
     <Select
       onValueChange={(value) =>
         onSelectTemplate(
-          currentTemplates[value as keyof typeof currentTemplates]
+          currentTemplates[value as keyof typeof currentTemplates],
         )
       }
     >
       <SelectTrigger className="w-[180px]">
-        <FileCode className="w-4 h-4 mr-2" />
+        <FileCode className="mr-2 h-4 w-4" />
         <SelectValue placeholder="Templates" />
       </SelectTrigger>
       <SelectContent className="bg-popover">

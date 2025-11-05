@@ -22,24 +22,24 @@ const KeyboardShortcuts = () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2">
-          <Keyboard className="w-4 h-4" />
+          <Keyboard className="h-4 w-4" />
         </Button>
       </DialogTrigger>
       <DialogContent className="bg-card">
         <DialogHeader>
           <DialogTitle>Keyboard Shortcuts</DialogTitle>
         </DialogHeader>
-        <div className="space-y-3 mt-4">
+        <div className="mt-4 space-y-3">
           {shortcuts.map((shortcut, index) => (
             <div key={index} className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground">
+              <span className="text-muted-foreground text-sm">
                 {shortcut.description}
               </span>
               <div className="flex gap-1">
                 {shortcut.keys.map((key) => (
                   <kbd
                     key={key}
-                    className="px-2 py-1 text-xs font-semibold bg-secondary border border-border rounded"
+                    className="bg-secondary border-border rounded border px-2 py-1 text-xs font-semibold"
                   >
                     {key}
                   </kbd>

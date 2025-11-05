@@ -25,6 +25,8 @@ const langMap = {
   js: "javascript",
 } as const;
 
+type TabKey = keyof typeof langMap;
+
 const HtmlEditor = ({
   htmlContent,
   cssContent,
@@ -68,13 +70,13 @@ const HtmlEditor = ({
   ]);
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="flex h-full flex-col">
       {/* Top bar */}
-      <div className="bg-secondary px-3 sm:px-4 py-2 border-b border-border flex items-center justify-between gap-2">
+      <div className="bg-secondary border-border flex items-center justify-between gap-2 border-b px-3 py-2 sm:px-4">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-destructive" />
-          <div className="w-3 h-3 rounded-full bg-accent" />
-          <div className="w-3 h-3 rounded-full bg-success" />
+          <div className="h-3 w-3 rounded-full bg-red-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
+          <div className="h-3 w-3 rounded-full bg-yellow-400 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
+          <div className="h-3 w-3 rounded-full bg-green-500 shadow-[0_0_2px_rgba(0,0,0,0.4)]"></div>
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
           {onSave && (
@@ -84,7 +86,7 @@ const HtmlEditor = ({
               size="sm"
               className="gap-1 sm:gap-2"
             >
-              <Download className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Download className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Save</span>
             </Button>
           )}
@@ -95,7 +97,7 @@ const HtmlEditor = ({
               size="sm"
               className="gap-1 sm:gap-2"
             >
-              <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
+              <RotateCcw className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Reset</span>
             </Button>
           )}
@@ -104,9 +106,9 @@ const HtmlEditor = ({
               onClick={onRun}
               disabled={isRunning}
               size="sm"
-              className="gap-1 sm:gap-2 bg-success hover:bg-success/90 text-background"
+              className="bg-success hover:bg-success/90 text-background gap-1 sm:gap-2"
             >
-              <Play className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Play className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Run</span>
             </Button>
           )}
@@ -116,32 +118,32 @@ const HtmlEditor = ({
       {/* Tabs */}
       <Tabs
         value={activeTab}
-        onValueChange={(v) => setActiveTab(v as any)}
-        className="flex-1 flex flex-col min-h-0"
+        onValueChange={(v) => setActiveTab(v as TabKey)}
+        className="flex min-h-0 flex-1 flex-col"
       >
-        <TabsList className="bg-secondary border-b border-border rounded-none w-full justify-start px-4">
+        <TabsList className="bg-secondary border-border w-full justify-start rounded-none border-b px-4">
           <TabsTrigger
             value="html"
-            className="font-mono text-xs sm:text-sm text-orange-500 data-[state=active]:text-orange-500 dark:text-orange-500 dark:data-[state=active]:text-orange-500 dark:data-[state=active]:bg-background"
+            className="dark:data-[state=active]:bg-background font-mono text-xs text-orange-500 data-[state=active]:text-orange-500 sm:text-sm dark:text-orange-500 dark:data-[state=active]:text-orange-500"
           >
             index.html
           </TabsTrigger>
           <TabsTrigger
             value="css"
-            className="font-mono text-xs sm:text-sm text-blue-500 data-[state=active]:text-blue-500 dark:text-blue-500 dark:data-[state=active]:text-blue-500 dark:data-[state=active]:bg-background"
+            className="dark:data-[state=active]:bg-background font-mono text-xs text-blue-500 data-[state=active]:text-blue-500 sm:text-sm dark:text-blue-500 dark:data-[state=active]:text-blue-500"
           >
             styles.css
           </TabsTrigger>
           <TabsTrigger
             value="js"
-            className="font-mono text-xs sm:text-sm text-yellow-500 data-[state=active]:text-yellow-500 dark:text-yellow-500 dark:data-[state=active]:text-yellow-500 dark:data-[state=active]:bg-background"
+            className="dark:data-[state=active]:bg-background font-mono text-xs text-yellow-500 data-[state=active]:text-yellow-500 sm:text-sm dark:text-yellow-500 dark:data-[state=active]:text-yellow-500"
           >
             script.js
           </TabsTrigger>
         </TabsList>
 
         {/* Satu Monaco instance, bahasa & value mengikuti tab */}
-        <div className="flex-1 min-h-0">
+        <div className="min-h-0 flex-1">
           <Editor
             height="100%"
             value={value}
