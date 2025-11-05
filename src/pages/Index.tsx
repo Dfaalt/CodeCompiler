@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
-import { Play } from "lucide-react";
 import CodeEditor from "@/components/CodeEditor";
 import HtmlEditor from "@/components/HtmlEditor";
 import OutputConsole from "@/components/OutputConsole";
-import LanguageSelector from "@/components/LanguageSelector";
-import CodeTemplates from "@/components/CodeTemplates";
-import ThemeToggle from "@/components/ThemeToggle";
-import KeyboardShortcuts from "@/components/KeyboardShortcuts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { toast } from "sonner";
 import * as ts from "typescript";
 
@@ -328,35 +325,12 @@ const Index = () => {
 
   return (
     <div className="bg-background flex h-screen flex-col overflow-hidden">
-      {/* Compact Header */}
-      <header className="border-border bg-card shrink-0 border-b">
-        <div className="flex items-center justify-between px-4 py-2">
-          {/* Header atas */}
-          <div className="flex items-center gap-3">
-            <div className="bg-success flex h-7 w-7 items-center justify-center rounded-lg">
-              <Play className="text-background h-4 w-4" />
-            </div>
-            <h1 className="text-foreground font-bold">Dfaalt Code Compiler</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-          </div>
-        </div>
-
-        {/* Header bawah */}
-        <div className="border-border snap-x overflow-x-auto border-t px-4 py-2">
-          <div className="flex min-w-max snap-start gap-3 whitespace-nowrap">
-            <LanguageSelector
-              value={language}
-              onChange={handleLanguageChange}
-            />
-            <CodeTemplates language={language} onSelectTemplate={setCode} />
-            <KeyboardShortcuts />
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content - Full height split */}
+      <Header
+        language={language}
+        onLanguageChange={handleLanguageChange}
+        onSelectTemplate={setCode}
+      />
+      {/* Main Content */}
       <div className="flex flex-1 flex-col overflow-hidden lg:flex-row">
         <div className="border-border h-1/2 w-full overflow-hidden border-b lg:h-full lg:w-1/2 lg:border-r lg:border-b-0">
           {language === "html" ? (
@@ -388,12 +362,7 @@ const Index = () => {
           <OutputConsole output={output} isRunning={isRunning} />
         </div>
       </div>
-      <footer className="border-border bg-card shrink-0 border-t py-3 sm:py-4">
-        <div className="text-muted-foreground container mx-auto px-3 text-center text-xs sm:px-4 sm:text-sm">
-          Online Code Compiler - Support for JavaScript, TypeScript, Python,
-          C++, Java, and HTML/CSS
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
