@@ -84,10 +84,10 @@ const HtmlEditor = ({
               onClick={onSave}
               variant="secondary"
               size="sm"
-              className="gap-1 sm:gap-2"
+              className="hover:text-accent gap-1 sm:gap-2"
             >
               <Download className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hidden sm:inline">Save</span>
+              <span className="hidden cursor-pointer sm:inline">Save</span>
             </Button>
           )}
           {onReset && (
@@ -95,10 +95,10 @@ const HtmlEditor = ({
               onClick={onReset}
               variant="secondary"
               size="sm"
-              className="gap-1 sm:gap-2"
+              className="hover:text-accent gap-1 sm:gap-2"
             >
               <RotateCcw className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hidden sm:inline">Reset</span>
+              <span className="hidden cursor-pointer sm:inline">Reset</span>
             </Button>
           )}
           {onRun && (
@@ -109,7 +109,7 @@ const HtmlEditor = ({
               className="bg-success hover:bg-success/90 text-background gap-1 sm:gap-2"
             >
               <Play className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hidden sm:inline">Run</span>
+              <span className="hidden cursor-pointer sm:inline">Run</span>
             </Button>
           )}
         </div>
@@ -124,19 +124,19 @@ const HtmlEditor = ({
         <TabsList className="bg-secondary border-border w-full justify-start rounded-none border-b px-4">
           <TabsTrigger
             value="html"
-            className="dark:data-[state=active]:bg-background font-mono text-xs text-orange-500 data-[state=active]:text-orange-500 sm:text-sm dark:text-orange-500 dark:data-[state=active]:text-orange-500"
+            className="dark:data-[state=active]:bg-background cursor-pointer font-mono text-xs text-orange-500 data-[state=active]:text-orange-500 sm:text-sm dark:text-orange-500 dark:data-[state=active]:text-orange-500"
           >
             index.html
           </TabsTrigger>
           <TabsTrigger
             value="css"
-            className="dark:data-[state=active]:bg-background font-mono text-xs text-blue-500 data-[state=active]:text-blue-500 sm:text-sm dark:text-blue-500 dark:data-[state=active]:text-blue-500"
+            className="dark:data-[state=active]:bg-background cursor-pointer font-mono text-xs text-blue-500 data-[state=active]:text-blue-500 sm:text-sm dark:text-blue-500 dark:data-[state=active]:text-blue-500"
           >
             styles.css
           </TabsTrigger>
           <TabsTrigger
             value="js"
-            className="dark:data-[state=active]:bg-background font-mono text-xs text-yellow-500 data-[state=active]:text-yellow-500 sm:text-sm dark:text-yellow-500 dark:data-[state=active]:text-yellow-500"
+            className="dark:data-[state=active]:bg-background cursor-pointer font-mono text-xs text-yellow-400 data-[state=active]:text-yellow-400 sm:text-sm dark:text-yellow-400 dark:data-[state=active]:text-yellow-400"
           >
             script.js
           </TabsTrigger>

@@ -58,7 +58,7 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               size="sm"
               onClick={() => setPreviewMode("desktop")}
               className={cn(
-                "h-8 w-8 p-0",
+                "h-8 w-8 cursor-pointer p-0",
                 previewMode === "desktop" && "bg-accent",
               )}
               title="Desktop Preview"
@@ -70,7 +70,7 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               size="sm"
               onClick={() => setPreviewMode("tablet")}
               className={cn(
-                "h-8 w-8 p-0",
+                "h-8 w-8 cursor-pointer p-0",
                 previewMode === "tablet" && "bg-accent",
               )}
               title="Tablet Preview"
@@ -82,7 +82,7 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               size="sm"
               onClick={() => setPreviewMode("mobile")}
               className={cn(
-                "h-8 w-8 p-0",
+                "h-8 w-8 cursor-pointer p-0",
                 previewMode === "mobile" && "bg-accent",
               )}
               title="Mobile Preview"
@@ -94,13 +94,11 @@ const OutputConsole = ({ output, isRunning }: OutputConsoleProps) => {
               variant="secondary"
               size="sm"
               onClick={openPreviewInNewTab}
-              className="ml-1 gap-1 sm:gap-2"
+              className="hover:text-accent ml-1 gap-1 sm:gap-2"
               title="Open Preview in New Tab"
             >
               <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hover:text-accent hidden cursor-pointer sm:inline">
-                Preview
-              </span>
+              <span className="hidden cursor-pointer sm:inline">Preview</span>
             </Button>
           </div>
         ) : null}

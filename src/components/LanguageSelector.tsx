@@ -13,12 +13,12 @@ interface LanguageSelectorProps {
 }
 
 const languages = [
-  { value: "javascript", label: "JavaScript", icon: "JS" },
-  { value: "typescript", label: "TypeScript", icon: "TS" },
-  { value: "python", label: "Python", icon: "PY" },
-  { value: "cpp", label: "C++", icon: "C++" },
-  { value: "java", label: "Java", icon: "JAVA" },
-  { value: "html", label: "HTML/CSS/JS", icon: "HTML" },
+  { value: "javascript", label: "JavaScript", icon: "JS", color: "#f7df1e" }, // Kuning JS
+  { value: "typescript", label: "TypeScript", icon: "TS", color: "#3178c6" }, // Biru TS
+  { value: "python", label: "Python", icon: "PY", color: "#3776ab" }, // Biru Python
+  { value: "cpp", label: "C++", icon: "C++", color: "#00599c" }, // Biru Tua C++
+  { value: "java", label: "Java", icon: "JAVA", color: "#b07219" }, // Coklat JAVA
+  { value: "html", label: "HTML/CSS/JS", icon: "HTML", color: "#e44d26" }, // Oranye HTML
 ];
 
 const LanguageSelector = ({ value, onChange }: LanguageSelectorProps) => {
@@ -34,7 +34,7 @@ const LanguageSelector = ({ value, onChange }: LanguageSelectorProps) => {
         {languages.map((lang) => (
           <SelectItem key={lang.value} value={lang.value}>
             <div className="flex items-center gap-2">
-              <span className="text-success font-mono text-xs">
+              <span className="font-mono text-xs" style={{ color: lang.color }}>
                 {lang.icon}
               </span>
               <span>{lang.label}</span>

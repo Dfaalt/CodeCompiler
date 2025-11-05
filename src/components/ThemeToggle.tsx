@@ -24,7 +24,7 @@ const ThemeToggle = () => {
       onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
       variant="secondary"
       size="sm"
-      className="gap-2"
+      className="hover:bg-accent/70 cursor-pointer gap-2"
     >
       {theme === "dark" ? (
         <>

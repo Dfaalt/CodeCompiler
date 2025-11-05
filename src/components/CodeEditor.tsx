@@ -50,10 +50,10 @@ const CodeEditor = ({
               onClick={onSave}
               variant="secondary"
               size="sm"
-              className="gap-1 sm:gap-2"
+              className="hover:text-accent gap-1 sm:gap-2"
             >
               <Download className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hidden sm:inline">Save</span>
+              <span className="hidden cursor-pointer sm:inline">Save</span>
             </Button>
           )}
           {onReset && (
@@ -61,10 +61,10 @@ const CodeEditor = ({
               onClick={onReset}
               variant="secondary"
               size="sm"
-              className="gap-1 sm:gap-2"
+              className="hover:text-accent gap-1 sm:gap-2"
             >
               <RotateCcw className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hidden sm:inline">Reset</span>
+              <span className="hidden cursor-pointer sm:inline">Reset</span>
             </Button>
           )}
           {onRun && (
@@ -75,7 +75,7 @@ const CodeEditor = ({
               className="bg-success hover:bg-success/90 text-background gap-1 sm:gap-2"
             >
               <Play className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="hidden sm:inline">Run</span>
+              <span className="hidden cursor-pointer sm:inline">Run</span>
             </Button>
           )}
         </div>
